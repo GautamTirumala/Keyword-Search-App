@@ -11,6 +11,7 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const resultsPerPage = 10; // You can adjust the number of results per page
+  const baseURL = "https://keyword-search-app-56xp.onrender.com";
 
   useEffect(() => {
     // Attach an event listener to the window's beforeunload event to delete the uploads folder in the backend
@@ -29,7 +30,7 @@ function App() {
   const handleUnload = async () => {
     try {
       // Send an HTTP request to your server to trigger the cleanup
-      await axios.delete("http://localhost:5000/api/cleanup"); // API endpoint to delete uploads folder
+      await axios.delete(baseURL+"/api/cleanup"); // API endpoint to delete uploads folder
     } catch (error) {
       console.error("Error during cleanup:", error);
     }

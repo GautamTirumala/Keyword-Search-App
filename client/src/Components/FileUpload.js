@@ -5,6 +5,7 @@ import axios from "axios";
 function FileUpload() {
   // State to keep track of uploaded files
   const [uploadedFiles, setUploadedFiles] = useState([]);
+  const baseURL = "https://keyword-search-app-56xp.onrender.com";
 
   // Function to handle file drop
   const onDrop = async (acceptedFiles) => {
@@ -19,7 +20,7 @@ function FileUpload() {
 
     // Send a POST request to upload the files to the server
     axios
-      .post("http://localhost:5000/api/upload", formData, {
+      .post(baseURL+"/api/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

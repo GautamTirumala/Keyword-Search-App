@@ -4,6 +4,8 @@ import axios from "axios";
 function SearchBar({ onSearch, setKeyword }) {
   // State to store the search query
   const [query, setQuery] = useState("");
+  const baseURL = "https://keyword-search-app-56xp.onrender.com";
+
 
   // Function to handle the search
   const handleSearch = async () => {
@@ -12,7 +14,7 @@ function SearchBar({ onSearch, setKeyword }) {
       if (query === "") return alert("Enter Keyword(s) to SEARCH");
 
       // Send a POST request to the server to perform the search
-      const response = await axios.post(`http://localhost:5000/api/search`, {
+      const response = await axios.post(baseURL+`/api/search`, {
         keyword: query,
       });
 
